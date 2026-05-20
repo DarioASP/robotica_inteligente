@@ -10,14 +10,14 @@ dd = DifferentialDrive(R,L);
 
 %% Simulation parameters
 sampleTime = 0.1;               % Sample time [s]
-tVec = 0:sampleTime:82;         % Time array
+tVec = 0:sampleTime:52;         % Time array
 
-initPose = [-5;3;0];             % Initial pose (x y theta)
+initPose = [10;9;0];             % Initial pose (x y theta)
 pose = zeros(3,numel(tVec));    % Pose matrix
 pose(:,1) = initPose;
 
 % Define waypoints
-waypoints = [-5,3; -3,3; -3,4; -1,5.5; -1,7; 0,6; 1,6; 1,7; 3,2; 5,0; 0,-2; 0,-4; 1,-6; 0,-4; 0,-1; 4,1; 0,-1; -1,0; -4,0; -3,1; -2,1; -3,1; -4,0; -5,2; -4,3; -5,2; -5,3; -2,3; -1,4; -2,4; -2,3];
+waypoints = [10,9; 8,11; 6,11; 4,9; 10,9; 7,5; 6,6; 7,5; 8,5; 7,5; 8,6; 7,7; 5,7; 3,5; 3,3; 5,1; 7,1; 9,3; 9,5; 8,6];
 
 % Create visualizer
 viz = Visualizer2D;
@@ -28,7 +28,7 @@ controller = controllerPurePursuit;
 controller.Waypoints = waypoints;
 controller.LookaheadDistance = 0.5;
 controller.DesiredLinearVelocity = 1;
-controller.MaxAngularVelocity = 4;
+controller.MaxAngularVelocity = 5;
 
 %% Simulation loop
 close all
